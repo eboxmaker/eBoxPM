@@ -14,12 +14,10 @@ bool ConfigFileHelper::LoadFile(QString FileFullPath)
     file=new QFile(FileFullPath);
     if(file->open(QIODevice::ReadOnly|QIODevice::Text))
     {
-        fileLineNums = 0;
         QTextStream ts(file);
         while(!ts.atEnd())
         {
             data.append(ts.readLine());
-            fileLineNums++;
         }
         QFileInfo *fi = new QFileInfo(FileFullPath);;
         FileName = fi->fileName();
@@ -47,7 +45,7 @@ bool ConfigFileHelper::SaveFile(QString Directory)
 
     if (newFile.open(QFile::WriteOnly | QIODevice::Truncate)) {
         QTextStream out(&newFile);
-        for(int i = 0; i < fileLineNums; i++)
+        for(int i = 0; i < data.count(); i++)
             out << data[i]<<"\r\n";
         newFile.flush();
         newFile.close();
@@ -60,7 +58,7 @@ bool ConfigFileHelper::ModifyPosition(int position, QStringList str)
     int indexEnd;
     QString BeginStr = "//AUTO_CONFIG_CODE_BEGIN_" + QString::number(position, 10);
     QString EndStr = "//AUTO_CONFIG_CODE_END_" + QString::number(position, 10);
-    for(int i = 0; i < fileLineNums; i++)
+    for(int i = 0; i < data.count(); i++)
     {
         if(data[i] == BeginStr)
             indexStart = i;
@@ -69,8 +67,14 @@ bool ConfigFileHelper::ModifyPosition(int position, QStringList str)
     }
     for(int i = indexStart + 1; i < indexEnd; i++)
     {
-        data[i] = str[i - indexStart - 1];
+        data.removeAt(indexStart + 1);
     }
+    for(int i = 0; i < str.count(); i++)
+    {
+        data.insert(indexStart + 1,str[str.count() - i - 1]);
+
+    }
+
     if(indexEnd - indexStart - 1== str.count())
         return true;
     else

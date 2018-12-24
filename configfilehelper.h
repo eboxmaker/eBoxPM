@@ -17,7 +17,6 @@ public:
     QString FileName;
     QFile   *file;
     QStringList data;
-    int fileLineNums;
 };
 
 #endif // CONFIGFILEHELPER_H
