@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="close_hover">picture/close_hover.png</file>
+        <file alias="close_normal">picture/close_normal.png</file>
+        <file alias="max_hover">picture/max_hover.png</file>
+        <file alias="max_normal">picture/max_normal.png</file>
+        <file alias="min_hover">picture/min_hover.png</file>
+        <file alias="min_normal">picture/min_normal.png</file>
+        <file alias="menu_hover">picture/menu_hover.png</file>
+        <file alias="menu_normal">picture/menu_normal.png</file>
+        <file alias="open_project">picture/openpro.png</file>
+        <file alias="recent_pro">picture/recent_pro.png</file>
+        <file alias="flag_error">picture/flag_error.png</file>
+        <file alias="flat_ok">picture/flag_ok.png</file>
+        <file alias="ground_setting">picture/ground.png</file>
+        <file alias="save_done">picture/save_done.png</file>
+        <file alias="warning">picture/warning.png</file>
+        <file alias="isLoading">picture/loading.gif</file>
+        <file alias="editeredo">picture/editredo.png</file>
+        <file alias="editundo">picture/editundo.png</file>
+        <file alias="clock_item">picture/clock_item.png</file>
+        <file alias="gpio_item">picture/gpio_item.png</file>
+        <file alias="tool_item">picture/tool_item.png</file>
+        <file alias="logo_180h">picture/logo180.png</file>
+        <file alias="logo_35h">picture/logo-h35.png</file>
+        <file alias="logo_125h">picture/logo-h125.png</file>
+    </qresource>
+</RCC>
